@@ -4,21 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop Smart</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
-      <div class="logo">ShopSmart</div>
+      <div class="logo">
+        <img src="assets/icons/icon.BNMhJCSt.png" alt="ShopSmart Logo" /> Shop
+        Smart
+      </div>
 
       <nav>
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
+        <a href="index.html">Home</a>
+        <a href="product.html">Shop</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
       </nav>
 
       <div class="header-actions">
         <input type="search" placeholder="Search products..." />
-        <button id="cart-btn">🛒 <span id="cart-count">0</span></button>
+        <button id="cart-btn">
+          <img src="assets/icons/cart.svg" alt="Cart" />
+          <span id="cart-count">0</span>
+        </button>
       </div>
     </header>
 
@@ -28,11 +35,22 @@
 
         <p>Shop quality products at affordable prices.</p>
 
-        <button>Shop Now</button>
+        <button class="shop-btn">Shop Now</button>
       </div>
 
       <div class="hero-image">
         <img src="assets/images/banner.webp" alt="Shopping" />
+      </div>
+    </section>
+
+    <section class="categories">
+      <h2>Shop by Category</h2>
+
+      <div class="category-container">
+        <div class="category-card">Electronics</div>
+        <div class="category-card">Clothes</div>
+        <div class="category-card">Furniture</div>
+        <div class="category-card">Shoes</div>
       </div>
     </section>
 
@@ -46,9 +64,17 @@
       <p>© 2026 ShopSmart. All rights reserved.</p>
 
       <div class="social-links">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
+        <a href="#">
+          <img src="assets/icons/facebook.svg" alt="Facebook" />
+        </a>
+
+        <a href="#">
+          <img src="assets/icons/instagram.svg" alt="Instagram" />
+        </a>
+
+        <a href="#">
+          <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+        </a>
       </div>
 
       <p>Email: support@shopsmart.com</p>
