@@ -6,7 +6,9 @@
 
 :root {
   --primary: #2563eb;
+  --primary-dark: #1d4ed8;
   --secondary: #f8fafc;
+  --border: #dcdcdc;
   --dark: #1e293b;
   --gray: #64748b;
   --white: #ffffff;
@@ -37,7 +39,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 8%;
-  background: white;
+  background: var(--white);
   box-shadow: var(--shadow);
 }
 
@@ -63,10 +65,6 @@ header {
   color: var(--dark);
 }
 
-.logo img {
-  width: 45px;
-}
-
 nav {
   display: flex;
   gap: 2rem;
@@ -89,7 +87,7 @@ nav a:hover {
 
 .header-actions input {
   padding: 10px 15px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 8px;
   outline: none;
 }
@@ -99,7 +97,7 @@ nav a:hover {
   align-items: center;
   gap: 8px;
   background: var(--primary);
-  color: white;
+  color: var(--white);
   padding: 10px 18px;
   border-radius: 8px;
 }
@@ -114,7 +112,7 @@ nav a:hover {
 }
 
 #cart-count {
-  background: white;
+  background: var(--white);
   color: var(--primary);
   border-radius: 50%;
   width: 22px;
@@ -162,7 +160,7 @@ nav a:hover {
 }
 
 .shop-btn:hover {
-  background: #1d4ed8;
+  background: var(--primary-dark);
   transform: translateY(-3px);
 }
 
@@ -174,12 +172,6 @@ nav a:hover {
   width: 100%;
   border-radius: 16px;
   box-shadow: var(--shadow);
-}
-
-.hero {
-  flex-direction: column;
-  text-align: center;
-  padding: 40px 8%;
 }
 
 .hero-text h1 {
@@ -206,7 +198,7 @@ nav a:hover {
 }
 
 .product-card {
-  background: white;
+  background: var(--white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -230,7 +222,7 @@ nav a:hover {
 
 .product-card p {
   padding: 0 1rem;
-  color: #2563eb;
+  color: var(--primary);
   font-weight: bold;
 }
 
@@ -239,8 +231,8 @@ nav a:hover {
   width: calc(100% - 2rem);
   padding: 12px;
   border: none;
-  background: #2563eb;
-  color: white;
+  background: var(--primary);
+  color: var(--white);
   border-radius: 8px;
   cursor: pointer;
 }
@@ -263,5 +255,19 @@ nav a:hover {
 
   .header-actions input {
     width: 100%;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 8%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-image {
+    max-width: 500px;
   }
 }
