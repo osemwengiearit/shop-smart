@@ -67,6 +67,20 @@ header {
   width: 45px;
 }
 
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -90,8 +104,13 @@ header {
   border-radius: 8px;
 }
 
+#cart-btn:hover {
+  transform: scale(1.05);
+}
+
 #cart-btn img {
-  width: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 #cart-count {
