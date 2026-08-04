@@ -8,11 +8,16 @@
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
   --secondary: #f8fafc;
-  --border: #dcdcdc;
   --dark: #1e293b;
   --gray: #64748b;
   --white: #ffffff;
+  --border: #dcdcdc;
   --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+  --transition: 0.3s ease;
 }
 
 body {
@@ -32,6 +37,7 @@ a {
 
 button {
   cursor: pointer;
+  font: inherit;
 }
 
 header {
@@ -56,15 +62,6 @@ header {
   width: 45px;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--dark);
-}
-
 nav {
   display: flex;
   gap: 2rem;
@@ -73,6 +70,7 @@ nav {
 nav a {
   color: var(--dark);
   font-weight: 600;
+  transition: var(--transition);
 }
 
 nav a:hover {
@@ -88,7 +86,7 @@ nav a:hover {
 .header-actions input {
   padding: 10px 15px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-small);
   outline: none;
 }
 
@@ -96,10 +94,11 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 10px 18px;
   background: var(--primary);
   color: var(--white);
-  padding: 10px 18px;
-  border-radius: 8px;
+  border-radius: var(--radius-small);
+  transition: var(--transition);
 }
 
 #cart-btn:hover {
@@ -111,40 +110,24 @@ nav a:hover {
   height: 24px;
 }
 
-.add-cart-btn {
-  margin: 1rem;
-  width: calc(100% - 2rem);
-  padding: 12px;
-  border: none;
-  background: var(--primary);
-  color: var(--white);
-  border-radius: var(--radius-small);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.add-cart-btn:hover {
-  background: var(--primary-dark);
-}
-
 #cart-count {
-  background: var(--white);
-  color: var(--primary);
-  border-radius: 50%;
   width: 22px;
   height: 22px;
   display: grid;
   place-items: center;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--primary);
   font-size: 0.8rem;
   font-weight: bold;
 }
 
 .hero {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 60px 8%;
+  align-items: center;
   gap: 50px;
+  padding: 60px 8%;
 }
 
 .hero-text {
@@ -153,26 +136,25 @@ nav a:hover {
 
 .hero-text h1 {
   font-size: 3rem;
-  color: var(--dark);
-  margin-bottom: 20px;
   line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .hero-text p {
   color: var(--gray);
   font-size: 1.1rem;
-  margin-bottom: 30px;
   line-height: 1.6;
+  margin-bottom: 30px;
 }
 
 .shop-btn {
   display: inline-block;
+  padding: 14px 30px;
   background: var(--primary);
   color: var(--white);
-  padding: 14px 30px;
-  border-radius: 8px;
+  border-radius: var(--radius-small);
   font-weight: bold;
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
 .shop-btn:hover {
@@ -182,20 +164,42 @@ nav a:hover {
 
 .hero-image {
   flex: 1;
+  max-width: 500px;
 }
 
 .hero-image img {
   width: 100%;
-  border-radius: 16px;
+  border-radius: var(--radius-large);
   box-shadow: var(--shadow);
 }
 
-.hero-text h1 {
-  font-size: 2.2rem;
+.categories {
+  padding: 4rem 8%;
 }
 
-.hero-image {
-  max-width: 500px;
+.categories h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.category-card {
+  padding: 2rem;
+  background: var(--white);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
 }
 
 .products {
@@ -215,10 +219,10 @@ nav a:hover {
 
 .product-card {
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-medium);
   overflow: hidden;
   box-shadow: var(--card-shadow);
-  transition: 0.3s;
+  transition: var(--transition);
 }
 
 .product-card:hover {
@@ -242,15 +246,42 @@ nav a:hover {
   font-weight: bold;
 }
 
-.product-card button {
-  margin: 1rem;
+.add-cart-btn {
   width: calc(100% - 2rem);
+  margin: 1rem;
   padding: 12px;
   border: none;
+  border-radius: var(--radius-small);
   background: var(--primary);
   color: var(--white);
-  border-radius: 8px;
-  cursor: pointer;
+  transition: var(--transition);
+}
+
+.add-cart-btn:hover {
+  background: var(--primary-dark);
+}
+
+footer {
+  padding: 2rem 8%;
+  text-align: center;
+  background: var(--dark);
+  color: var(--white);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.social-links img {
+  width: 32px;
+  transition: var(--transition);
+}
+
+.social-links img:hover {
+  transform: scale(1.15);
 }
 
 @media (max-width: 768px) {
@@ -284,6 +315,6 @@ nav a:hover {
   }
 
   .hero-image {
-    max-width: 500px;
+    max-width: 100%;
   }
 }
