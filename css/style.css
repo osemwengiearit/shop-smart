@@ -111,6 +111,22 @@ nav a:hover {
   height: 24px;
 }
 
+.add-cart-btn {
+  margin: 1rem;
+  width: calc(100% - 2rem);
+  padding: 12px;
+  border: none;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.add-cart-btn:hover {
+  background: var(--primary-dark);
+}
+
 #cart-count {
   background: var(--white);
   color: var(--primary);
@@ -201,7 +217,7 @@ nav a:hover {
   background: var(--white);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   transition: 0.3s;
 }
 
