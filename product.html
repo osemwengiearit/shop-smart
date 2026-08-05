@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products | Shop Smart</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/product.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" class="logo">
+        <img src="assets/icons/shopsmart-logo.png" alt="Shop Smart Logo" />
+        <span>Shop Smart</span>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html" class="active">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search products..."
+          aria-label="Search products"
+        />
+
+        <a href="cart.html" id="cart-btn">
+          <img src="assets/icons/cart.svg" alt="Cart" />
+
+          <span id="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <div class="banner-content">
+        <h1>Our Products</h1>
+
+        <p>
+          Browse our wide collection of quality products carefully selected for
+          you.
+        </p>
+      </div>
+    </section>
+
+    <section class="filter-section">
+      <div class="filter-container">
+        <div class="filter-group">
+          <label for="category-filter">Category</label>
+
+          <select id="category-filter">
+            <option value="all">All Categories</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="sort-products">Sort By</label>
+
+          <select id="sort-products">
+            <option value="default">Default</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+            <option value="name">Name (A-Z)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="section-title">
+        <h2>All Products</h2>
+
+        <p>
+          Explore our complete collection of premium products at unbeatable
+          prices.
+        </p>
+      </div>
+
+      <div id="products-container">
+        <!-- Products will be loaded dynamically here -->
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+
+        <p>
+          Subscribe to receive updates on new arrivals, exclusive discounts and
+          special offers.
+        </p>
+
+        <form>
+          <input type="email" placeholder="Enter your email address" required />
+
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3>Shop Smart</h3>
+
+          <p>
+            Your trusted online marketplace for quality products at affordable
+            prices.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+
+          <a href="index.html">Home</a>
+          <a href="product.html">Shop</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact</h3>
+
+          <p>Email: support@shopsmart.com</p>
+
+          <p>Phone: +234 800 123 4567</p>
+        </div>
+
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/osemwengie-arit-bright-a84a28159/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/linkedin.jpg" alt="LinkedIn" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/arit_bright"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/instagram.jpg" alt="Instagram" />
+            </a>
+
+            <a
+              href="https://facebook.com/osemwengie.arit.bright"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/facebook.jpg" alt="Facebook" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="copyright">&copy; 2026 Shop Smart. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/product.js"></script>
+  </body>
+</html>
