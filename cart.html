@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart | Shop Smart</title>
+
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <a href="index.html" class="logo">
+        <img src="assets/icons/shopsmart-logo.png" alt="ShopSmart Logo" />
+        <span>Shop Smart</span>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Shop</a>
+        <a href="cart.html" class="active">Cart</a>
+        <a href="#">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" id="cart-btn">
+          <img src="assets/icons/cart.svg" alt="Cart" />
+          <span id="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Cart Hero -->
+    <section class="cart-hero">
+      <h1>Your Shopping Cart</h1>
+      <p>Review your selected items before proceeding to checkout.</p>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+      <div class="cart-items">
+        <!-- Items from JavaScript -->
+        <div id="cart-container"></div>
+      </div>
+
+      <aside class="cart-summary">
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="subtotal">$0.00</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>Free</span>
+        </div>
+
+        <hr />
+
+        <div class="summary-row total">
+          <span>Total</span>
+          <span id="total">$0.00</span>
+        </div>
+
+        <a href="checkout.html" class="checkout-btn"> Proceed to Checkout </a>
+      </aside>
+    </section>
+
+    <!-- Empty Cart -->
+    <section id="empty-cart" class="empty-cart">
+      <img src="assets/icons/cart.svg" alt="Empty Cart" />
+
+      <h2>Your cart is empty</h2>
+
+      <p>Add some amazing products to get started.</p>
+
+      <a href="product.html" class="continue-shopping"> Continue Shopping </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div>
+          <h3>Shop Smart</h3>
+
+          <p>Your one-stop online store for quality products.</p>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+
+          <a href="index.html">Home</a>
+          <a href="product.html">Products</a>
+          <a href="cart.html">Cart</a>
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+
+          <p>support@shopsmart.com</p>
+
+          <p>+234 800 123 4567</p>
+        </div>
+      </div>
+
+      <p class="copyright">© 2026 Shop Smart. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/cart.js"></script>
+  </body>
+</html>
