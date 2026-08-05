@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #f8fafc;
+  --dark: #1e293b;
+  --gray: #64748b;
+  --white: #ffffff;
+  --border: #dcdcdc;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+  --transition: 0.3s ease;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--secondary);
+  color: var(--dark);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--dark);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 45px;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--dark);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+.checkout {
+  padding: 5rem 8%;
+}
+
+.checkout-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.checkout-title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.checkout-title p {
+  color: var(--gray);
+}
+
+.checkout-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-section {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-medium);
+  box-shadow: var(--card-shadow);
+}
+
+.form-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-small);
+  outline: none;
+}
+
+.form-section input:focus {
+  border-color: var(--primary);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox input {
+  width: auto;
+  margin: 0;
+}
+
+.payment-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.payment-row input {
+  flex: 1;
+}
+
+.order-summary {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-medium);
+  box-shadow: var(--card-shadow);
+  height: fit-content;
+  position: sticky;
+  top: 30px;
+}
+
+.order-summary h2 {
+  margin-bottom: 1.5rem;
+}
+
+#checkout-items {
+  margin-bottom: 2rem;
+}
+
+.checkout-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.checkout-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: var(--radius-small);
+}
+
+.checkout-item-info h4 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.checkout-item-info p {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.summary {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+#place-order-btn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 15px;
+  border: none;
+  border-radius: var(--radius-small);
+  background: var(--primary);
+  color: var(--white);
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+#place-order-btn:hover {
+  background: var(--primary-dark);
+}
+
+footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  text-align: center;
+  background: var(--dark);
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .payment-row {
+    flex-direction: column;
+  }
+
+  .checkout {
+    padding: 3rem 5%;
+  }
+
+  .checkout-title h1 {
+    font-size: 2rem;
+  }
+}
