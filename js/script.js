@@ -3,8 +3,6 @@ const cartCount = document.getElementById("cart-count");
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
-const productsContainer = document.getElementById("products-container");
-
 async function getProducts() {
   // Show loading message
   productsContainer.innerHTML = "<p>Loading products...</p>";
@@ -41,16 +39,18 @@ function displayProducts(products) {
     card.classList.add("product-card");
 
     card.innerHTML = `
-      <img src="${product.images[0]}" alt="${product.title}">
+  <img src="${product.images?.[0] || product.category?.image}" alt="${product.title}">
 
-      <h3>${product.title}</h3>
+  <div class="product-info">
+    <h3>${product.title}</h3>
 
-      <p>$${product.price}</p>
+    <p class="price">$${product.price}</p>
 
-      <button class="add-cart-btn" data-id="${product.id}">
-        Add to Cart
-      </button>
-    `;
+    <button class="add-cart-btn" data-id="${product.id}">
+      Add to Cart
+    </button>
+  </div>
+`;
 
     productsContainer.appendChild(card);
 
@@ -74,7 +74,7 @@ function addToCart(product) {
       id: product.id,
       title: product.title,
       price: product.price,
-      image: product.images[0],
+      image: product.images?.[0] || product.category?.image,
       quantity: 1,
     });
   }

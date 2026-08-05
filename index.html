@@ -22,7 +22,11 @@
       </nav>
 
       <div class="header-actions">
-        <input type="search" placeholder="Search products..." />
+        <input
+          type="search"
+          placeholder="Search products..."
+          aria-label="Search products"
+        />
 
         <a href="cart.html" id="cart-btn">
           <img src="assets/icons/cart.svg" alt="Cart" />
@@ -51,51 +55,211 @@
       <h2>Shop by Category</h2>
 
       <div class="category-container">
-        <div class="category-card">Electronics</div>
-        <div class="category-card">Clothes</div>
-        <div class="category-card">Furniture</div>
-        <div class="category-card">Shoes</div>
+        <a href="product.html" class="category-card">Electronics</a>
+        <a href="product.html" class="category-card">Clothes</a>
+        <a href="product.html" class="category-card">Furniture</a>
+        <a href="product.html" class="category-card">Shoes</a>
       </div>
     </section>
 
     <!-- Featured Products -->
     <section class="products">
-      <h2>Featured Products</h2>
+      <div class="section-title">
+        <h2>Featured Products</h2>
 
-      <div id="products-container"></div>
+        <p>
+          Discover our latest collection of quality products at unbeatable
+          prices.
+        </p>
+      </div>
+
+      <div id="products-container">
+        <article class="product-card">
+          <img src="assets/images/1twoaDy.jpeg" alt="Red Hoodie" />
+
+          <div class="product-info">
+            <h3>
+              <a href="product.html">Red Hoodie</a>
+            </h3>
+
+            <p class="price">$45</p>
+
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/9LFjwpI.jpeg" alt="Joggers" />
+
+          <div class="product-info">
+            <h3>Red Joggers</h3>
+
+            <p class="price">$35</p>
+
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/BG8J0Fj.jpg" alt="Electric Bike" />
+
+          <div class="product-info">
+            <h3>Electric Bike</h3>
+
+            <p class="price">$850</p>
+
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/cHddUCu.jpeg" alt="White Hoodie" />
+
+          <div class="product-info">
+            <h3>White Hoodie</h3>
+
+            <p class="price">$50</p>
+
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/cSytoSD.jpeg" alt="Black Hoodie" />
+
+          <div class="product-info">
+            <h3>Black Hoodie</h3>
+
+            <p class="price">$48</p>
+
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/QkIa5tT.jpeg" alt="Graphic T-Shirt" />
+
+          <div class="product-info">
+            <h3>Graphic T-Shirt</h3>
+
+            <p class="price">$25</p>
+
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/qNOjJje.jpeg" alt="Running Shoes" />
+
+          <div class="product-info">
+            <h3>Running Shoes</h3>
+
+            <p class="price">$90</p>
+
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/Qphac99.jpeg" alt="Modern Sofa" />
+
+          <div class="product-info">
+            <h3>Modern Sofa</h3>
+
+            <p class="price">$420</p>
+
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+
+        <p>
+          Subscribe to receive updates on new arrivals, exclusive deals, and
+          special offers.
+        </p>
+
+        <form>
+          <label for="email" class="visually-hidden"> Email Address </label>
+
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email address"
+            required
+          />
+
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-      <p>© 2026 ShopSmart. All rights reserved.</p>
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3>Shop Smart</h3>
 
-      <div class="social-links">
-        <a
-          href="https://www.linkedin.com/in/osemwengie-arit-bright-a84a28159/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="assets/icons/linkedin.jpg" alt="LinkedIn" />
-        </a>
+          <p>
+            Your one-stop online store for quality products at affordable
+            prices.
+          </p>
+        </div>
 
-        <a
-          href="https://www.instagram.com/arit_bright"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="assets/icons/instagram.jpg" alt="Instagram" />
-        </a>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
 
-        <a
-          href="https://facebook.com/osemwengie.arit.bright"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="assets/icons/facebook.jpg" alt="Facebook" />
-        </a>
+          <a href="index.html">Home</a>
+          <a href="product.html">Shop</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact</h3>
+
+          <p>Email: support@shopsmart.com</p>
+
+          <p>Phone: +234 800 123 4567</p>
+        </div>
+
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/osemwengie-arit-bright-a84a28159/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/linkedin.jpg" alt="LinkedIn" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/arit_bright"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/instagram.jpg" alt="Instagram" />
+            </a>
+
+            <a
+              href="https://facebook.com/osemwengie.arit.bright"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/facebook.jpg" alt="Facebook" />
+            </a>
+          </div>
+        </div>
       </div>
 
-      <p>Email: support@shopsmart.com</p>
+      <p class="copyright">© 2026 Shop Smart. All Rights Reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
