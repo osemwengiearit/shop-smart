@@ -1,3 +1,6 @@
+const productsContainer = document.getElementById("products-container");
+const cartCount = document.getElementById("cart-count");
+
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
 const productsContainer = document.getElementById("products-container");
@@ -27,6 +30,7 @@ async function getProducts() {
 }
 
 getProducts();
+updateCartCount();
 
 function displayProducts(products) {
   productsContainer.innerHTML = "";
@@ -49,5 +53,43 @@ function displayProducts(products) {
     `;
 
     productsContainer.appendChild(card);
+
+    const addButton = card.querySelector(".add-cart-btn");
+
+    addButton.addEventListener("click", () => {
+      addToCart(product);
+    });
   });
+}
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existingProduct = cart.find((item) => item.id === product.id);
+
+  if (existingProduct) {
+    existingProduct.quantity++;
+  } else {
+    cart.push({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.images[0],
+      quantity: 1,
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const totalItems = cart.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+
+  cartCount.textContent = totalItems;
 }
