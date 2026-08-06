@@ -10,23 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
     loadProducts();
   }
 
-  updateCartCount();
+  if (typeof updateCartCount === "function") {
+    updateCartCount();
+  }
 });
 
-// Fetch All Products
+// Fetch all products
 async function loadProducts() {
-  productsContainer.innerHTML = '<p class="loading">Loading products...</p>';
+  productsContainer.innerHTML = "<p>Loading products...</p>";
 
   try {
     const response = await fetch(API_URL);
 
     if (!response.ok) {
-      throw new Error("Unable to fetch products.");
+      throw new Error("Failed to fetch products.");
     }
 
     const products = await response.json();
 
-    // Show ALL products
     displayProducts(products);
   } catch (error) {
     console.error(error);
@@ -44,17 +45,18 @@ async function loadProducts() {
 function displayProducts(products) {
   productsContainer.innerHTML = "";
 
-  if (products.length === 0) {
+  if (!products.length) {
     productsContainer.innerHTML =
-      '<p class="no-products">No products found.</p>';
+      "<p class='no-products'>No products found.</p>";
     return;
   }
 
   products.forEach((product) => {
     const image =
-      product.images?.[0] ||
-      product.category?.image ||
-      "https://placehold.co/400x400?text=No+Image";
+      product.images && product.images.length > 0
+        ? product.images[0]
+        : product.category?.image ||
+          "https://placehold.co/400x400?text=No+Image";
 
     const card = document.createElement("article");
     card.className = "product-card";
@@ -63,6 +65,7 @@ function displayProducts(products) {
       <img
         src="${image}"
         alt="${product.title}"
+        onerror="this.src='https://placehold.co/400x400?text=No+Image'"
       >
 
       <div class="product-info">
@@ -79,15 +82,17 @@ function displayProducts(products) {
     const button = card.querySelector(".add-cart-btn");
 
     button.addEventListener("click", () => {
-      addToCart(product);
+      if (typeof addToCart === "function") {
+        addToCart(product);
+      }
 
       button.textContent = "✓ Added";
       button.disabled = true;
 
       setTimeout(() => {
-        button.disabled = false;
         button.textContent = "Add to Cart";
-      }, 1200);
+        button.disabled = false;
+      }, 1000);
     });
 
     productsContainer.appendChild(card);
