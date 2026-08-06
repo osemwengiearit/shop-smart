@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping Cart | Shop Smart</title>
 
+    <title>Shopping Cart | Shop Smart</title>
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/cart.css" />
   </head>
 
   <body>
-    <!-- Header -->
     <header>
       <a href="index.html" class="logo">
-        <img src="assets/icons/shopsmart-logo.png" alt="ShopSmart Logo" />
+        <img src="assets/icons/shopsmart-logo.png" alt="Shop Smart Logo" />
         <span>Shop Smart</span>
       </a>
 
@@ -25,24 +25,37 @@
 
       <div class="header-actions">
         <a href="cart.html" id="cart-btn">
-          <img src="assets/icons/cart.svg" alt="Cart" />
+          <img src="assets/icons/cart.svg" alt="Shopping Cart" />
           <span id="cart-count">0</span>
         </a>
       </div>
     </header>
 
-    <!-- Cart Hero -->
-    <section class="cart-hero">
+    <section class="cart-title">
       <h1>Your Shopping Cart</h1>
       <p>Review your selected items before proceeding to checkout.</p>
     </section>
 
-    <!-- Cart Section -->
-    <section class="cart-section">
-      <div class="cart-items">
-        <!-- Items from JavaScript -->
-        <div id="cart-container"></div>
-      </div>
+    <main class="cart-container">
+      <!-- Cart Items -->
+
+      <section class="cart-items">
+        <div id="cart-container">
+          <!-- JavaScript Loads Cart Here -->
+        </div>
+
+        <section id="empty-cart" class="empty-cart" hidden>
+          <img src="assets/icons/cart.svg" alt="Empty Cart" width="80" />
+
+          <h2>Your Cart is Empty</h2>
+
+          <p>Looks like you haven't added any products yet.</p>
+
+          <a href="product.html" class="shop-btn"> Continue Shopping </a>
+        </section>
+      </section>
+
+      <!-- Cart Summary -->
 
       <aside class="cart-summary">
         <h2>Order Summary</h2>
@@ -57,8 +70,6 @@
           <span>Free</span>
         </div>
 
-        <hr />
-
         <div class="summary-row total">
           <span>Total</span>
           <span id="total">$0.00</span>
@@ -66,49 +77,74 @@
 
         <a href="checkout.html" class="checkout-btn"> Proceed to Checkout </a>
       </aside>
-    </section>
+    </main>
 
-    <!-- Empty Cart -->
-    <section id="empty-cart" class="empty-cart">
-      <img src="assets/icons/cart.svg" alt="Empty Cart" />
-
-      <h2>Your cart is empty</h2>
-
-      <p>Add some amazing products to get started.</p>
-
-      <a href="product.html" class="continue-shopping"> Continue Shopping </a>
-    </section>
-
-    <!-- Footer -->
     <footer>
       <div class="footer-container">
-        <div>
+        <div class="footer-about">
           <h3>Shop Smart</h3>
 
-          <p>Your one-stop online store for quality products.</p>
+          <p>
+            Your one-stop online store for quality products at affordable
+            prices.
+          </p>
         </div>
 
-        <div>
+        <div class="footer-links">
           <h3>Quick Links</h3>
 
           <a href="index.html">Home</a>
-          <a href="product.html">Products</a>
+
+          <a href="product.html">Shop</a>
+
           <a href="cart.html">Cart</a>
+
+          <a href="checkout.html">Checkout</a>
         </div>
 
-        <div>
+        <div class="footer-contact">
           <h3>Contact</h3>
 
-          <p>support@shopsmart.com</p>
+          <p>Email: support@shopsmart.com</p>
 
-          <p>+234 800 123 4567</p>
+          <p>Phone: +234 800 123 4567</p>
+        </div>
+
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/osemwengie-arit-bright-a84a28159/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/linkedin.jpg" alt="LinkedIn" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/arit_bright"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/instagram.jpg" alt="Instagram" />
+            </a>
+
+            <a
+              href="https://facebook.com/osemwengie.arit.bright"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/icons/facebook.jpg" alt="Facebook" />
+            </a>
+          </div>
         </div>
       </div>
 
-      <p class="copyright">© 2026 Shop Smart. All Rights Reserved.</p>
+      <p class="copyright">&copy; 2026 Shop Smart. All Rights Reserved.</p>
     </footer>
 
-    <script src="js/cart.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
   </body>
 </html>

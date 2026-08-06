@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Checkout | Shop Smart</title>
+
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/checkout.css" />
   </head>
 
@@ -19,7 +22,15 @@
         <a href="index.html">Home</a>
         <a href="product.html">Shop</a>
         <a href="cart.html">Cart</a>
+        <a href="checkout.html" class="active">Checkout</a>
       </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" id="cart-btn">
+          <img src="assets/icons/cart.svg" alt="Shopping Cart" />
+          <span id="cart-count">0</span>
+        </a>
+      </div>
     </header>
 
     <!-- Checkout -->
@@ -30,93 +41,144 @@
       </div>
 
       <div class="checkout-container">
-        <!-- Checkout Form -->
+        <!-- LEFT -->
         <section class="checkout-form">
-          <!-- Billing -->
-          <div class="form-section">
-            <h2>Billing Information</h2>
+          <form id="checkout-form">
+            <!-- Billing -->
+            <div class="form-section">
+              <h2>Billing Information</h2>
 
-            <form id="checkout-form">
-              <input type="text" id="name" placeholder="Full Name" required />
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Full Name"
+                autocomplete="name"
+                required
+              />
 
+              <label for="email">Email Address</label>
               <input
                 type="email"
                 id="email"
                 placeholder="Email Address"
+                autocomplete="email"
                 required
               />
 
+              <label for="phone">Phone Number</label>
               <input
                 type="tel"
                 id="phone"
                 placeholder="Phone Number"
+                autocomplete="tel"
                 required
               />
 
+              <label for="address">Street Address</label>
               <input
                 type="text"
                 id="address"
                 placeholder="Street Address"
+                autocomplete="street-address"
                 required
               />
 
-              <input type="text" id="city" placeholder="City" required />
-
-              <input type="text" id="state" placeholder="State" required />
-
-              <input type="text" id="zip" placeholder="Postal Code" required />
-            </form>
-          </div>
-
-          <!-- Shipping -->
-          <div class="form-section">
-            <h2>Shipping Information</h2>
-
-            <label class="checkbox">
-              <input type="checkbox" id="same-address" checked />
-              Shipping address is the same as billing address
-            </label>
-          </div>
-
-          <!-- Payment -->
-          <div class="form-section">
-            <h2>Payment Information</h2>
-
-            <input
-              type="text"
-              id="card-name"
-              placeholder="Name on Card"
-              required
-            />
-
-            <input
-              type="text"
-              id="card-number"
-              placeholder="Card Number"
-              maxlength="19"
-              required
-            />
-
-            <div class="payment-row">
-              <input type="text" id="expiry" placeholder="MM/YY" required />
-
+              <label for="city">City</label>
               <input
                 type="text"
-                id="cvv"
-                placeholder="CVV"
-                maxlength="3"
+                id="city"
+                placeholder="City"
+                autocomplete="address-level2"
+                required
+              />
+
+              <label for="state">State</label>
+              <input
+                type="text"
+                id="state"
+                placeholder="State"
+                autocomplete="address-level1"
+                required
+              />
+
+              <label for="zip">Postal Code</label>
+              <input
+                type="text"
+                id="zip"
+                placeholder="Postal Code"
+                autocomplete="postal-code"
                 required
               />
             </div>
-          </div>
+
+            <!-- Shipping -->
+            <div class="form-section">
+              <h2>Shipping Information</h2>
+
+              <label class="checkbox">
+                <input type="checkbox" id="same-address" checked />
+                Shipping address is the same as billing address
+              </label>
+            </div>
+
+            <!-- Payment -->
+            <div class="form-section">
+              <h2>Payment Information</h2>
+
+              <label for="card-name">Name on Card</label>
+              <input
+                type="text"
+                id="card-name"
+                placeholder="Name on Card"
+                autocomplete="cc-name"
+                required
+              />
+
+              <label for="card-number">Card Number</label>
+              <input
+                type="text"
+                id="card-number"
+                placeholder="1234 5678 9012 3456"
+                maxlength="19"
+                autocomplete="cc-number"
+                required
+              />
+
+              <div class="payment-row">
+                <div>
+                  <label for="expiry">Expiry Date</label>
+                  <input
+                    type="text"
+                    id="expiry"
+                    placeholder="MM/YY"
+                    autocomplete="cc-exp"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="cvv">CVV</label>
+                  <input
+                    type="text"
+                    id="cvv"
+                    placeholder="123"
+                    maxlength="3"
+                    autocomplete="cc-csc"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
         </section>
 
-        <!-- Order Summary -->
+        <!-- RIGHT -->
         <aside class="order-summary">
           <h2>Order Summary</h2>
 
           <div id="checkout-items">
-            <!-- JavaScript will display purchased items here -->
+            <!-- JavaScript loads products here -->
           </div>
 
           <div class="summary">
@@ -136,17 +198,42 @@
             </div>
           </div>
 
-          <button id="place-order-btn">Place Order</button>
+          <button type="button" id="place-order-btn">Place Order</button>
         </aside>
       </div>
     </main>
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2026 Shop Smart. All Rights Reserved.</p>
+      <div class="footer-container">
+        <div>
+          <h3>Shop Smart</h3>
+
+          <p>Your trusted online marketplace for quality products.</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+
+          <a href="index.html">Home</a>
+          <a href="product.html">Shop</a>
+          <a href="cart.html">Cart</a>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact</h3>
+
+          <p>support@shopsmart.com</p>
+
+          <p>+234 800 123 4567</p>
+        </div>
+      </div>
+
+      <p class="copyright">&copy; 2026 Shop Smart. All Rights Reserved.</p>
     </footer>
 
-    <script src="js/checkout.js"></script>
+    <!-- JavaScript -->
     <script src="js/app.js"></script>
+    <script src="js/checkout.js"></script>
   </body>
 </html>

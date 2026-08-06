@@ -1,18 +1,21 @@
 const productsContainer = document.getElementById("products-container");
-const cartCount = document.getElementById("cart-count");
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
-async function getProducts() {
-  // Show loading message
-  productsContainer.innerHTML = "<p>Loading products...</p>";
+// Run when page loads
+document.addEventListener("DOMContentLoaded", () => {
+  loadProducts();
+});
+
+// Fetch Products
+async function loadProducts() {
+  productsContainer.innerHTML = '<p class="loading">Loading products...</p>';
 
   try {
     const response = await fetch(API_URL);
 
-    // Check if request was successful
     if (!response.ok) {
-      throw new Error("Failed to fetch products.");
+      throw new Error("Unable to fetch products.");
     }
 
     const products = await response.json();
@@ -22,74 +25,65 @@ async function getProducts() {
     console.error(error);
 
     productsContainer.innerHTML = `
-      <p>Unable to load products. Please try again later.</p>
+      <p class="no-products">
+        Failed to load products.<br>
+        Please refresh the page.
+      </p>
     `;
   }
 }
 
-getProducts();
-updateCartCount();
-
+// Display Products
 function displayProducts(products) {
   productsContainer.innerHTML = "";
 
-  products.forEach((product) => {
-    const card = document.createElement("div");
-
-    card.classList.add("product-card");
-
-    card.innerHTML = `
-  <img src="${product.images?.[0] || product.category?.image}" alt="${product.title}">
-
-  <div class="product-info">
-    <h3>${product.title}</h3>
-
-    <p class="price">$${product.price}</p>
-
-    <button class="add-cart-btn" data-id="${product.id}">
-      Add to Cart
-    </button>
-  </div>
-`;
-
-    productsContainer.appendChild(card);
-
-    const addButton = card.querySelector(".add-cart-btn");
-
-    addButton.addEventListener("click", () => {
-      addToCart(product);
-    });
-  });
-}
-
-function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const existingProduct = cart.find((item) => item.id === product.id);
-
-  if (existingProduct) {
-    existingProduct.quantity++;
-  } else {
-    cart.push({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      image: product.images?.[0] || product.category?.image,
-      quantity: 1,
-    });
+  if (!products.length) {
+    productsContainer.innerHTML =
+      '<p class="no-products">No products found.</p>';
+    return;
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+  products.forEach((product) => {
+    const image =
+      product.images?.[0] ||
+      product.category?.image ||
+      "assets/images/no-image.png";
 
-  updateCartCount();
-}
+    const card = document.createElement("article");
+    card.className = "product-card";
 
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    card.innerHTML = `
+      <img
+        src="${image}"
+        alt="${product.title}"
+        onerror="this.src='assets/images/no-image.png'"
+      >
 
-  const totalItems = cart.reduce((total, item) => {
-    return total + item.quantity;
-  }, 0);
+      <div class="product-info">
+        <h3>${product.title}</h3>
 
-  cartCount.textContent = totalItems;
+        <p class="price">$${product.price}</p>
+
+        <button class="add-cart-btn">
+          Add to Cart
+        </button>
+      </div>
+    `;
+
+    const button = card.querySelector(".add-cart-btn");
+
+    button.addEventListener("click", () => {
+      addToCart(product);
+
+      button.textContent = "✓ Added";
+      button.disabled = true;
+
+      setTimeout(() => {
+        button.disabled = false;
+        button.textContent = "Add to Cart";
+      }, 1200);
+    });
+
+    productsContainer.appendChild(card);
+  });
 }
