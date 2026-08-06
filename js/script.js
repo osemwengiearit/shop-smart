@@ -1,13 +1,19 @@
+console.log("script.js loaded");
+
 const productsContainer = document.getElementById("products-container");
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
 // Run when page loads
 document.addEventListener("DOMContentLoaded", () => {
-  loadProducts();
+  if (productsContainer) {
+    loadProducts();
+  }
+
+  updateCartCount();
 });
 
-// Fetch Products
+// Fetch Featured Products
 async function loadProducts() {
   productsContainer.innerHTML = '<p class="loading">Loading products...</p>';
 
@@ -20,6 +26,7 @@ async function loadProducts() {
 
     const products = await response.json();
 
+    // Home page shows only 8 featured products
     displayProducts(products.slice(0, 8));
   } catch (error) {
     console.error(error);
@@ -37,7 +44,7 @@ async function loadProducts() {
 function displayProducts(products) {
   productsContainer.innerHTML = "";
 
-  if (!products.length) {
+  if (products.length === 0) {
     productsContainer.innerHTML =
       '<p class="no-products">No products found.</p>';
     return;
@@ -47,7 +54,7 @@ function displayProducts(products) {
     const image =
       product.images?.[0] ||
       product.category?.image ||
-      "assets/images/no-image.png";
+      "https://placehold.co/400x400?text=No+Image";
 
     const card = document.createElement("article");
     card.className = "product-card";
@@ -56,7 +63,6 @@ function displayProducts(products) {
       <img
         src="${image}"
         alt="${product.title}"
-        onerror="this.src='assets/images/no-image.png'"
       >
 
       <div class="product-info">
